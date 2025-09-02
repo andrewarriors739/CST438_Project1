@@ -1,6 +1,7 @@
+import React from "react";
 import { Stack } from "expo-router";
 import { useEffect } from "react";
-import { initDatabase } from "@/database/database";
+import { initDatabase } from "../database/database";
 export default function RootLayout() {
   useEffect(() => {
     initDatabase();
