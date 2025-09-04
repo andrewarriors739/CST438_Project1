@@ -46,6 +46,13 @@ export default function RootLayout() {
           title: 'Profile',
         }}
         />
+         <Drawer.Screen
+        name = "teams"
+        options = {{
+          drawerLabel: 'Teams', 
+          title: 'Teams',
+        }}
+        />
       </Drawer>
     </GestureHandlerRootView>
   );

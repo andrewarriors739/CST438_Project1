@@ -1,26 +1,40 @@
-// // import { Text, View } from "react-native";
+// import React, { useState } from 'react';
+// import { View, StyleSheet, TextInput } from 'react-native';
 
-// // export default function Index() {
-// //   return (
-// //     <View
-// //       style={{
-// //         flex: 1,
-// //         justifyContent: "center",
-// //         alignItems: "center",
-// //       }}
-// //     >
-// //       <Text>Edit app/index.tsx to edit this screen.</Text>
-// //     </View>
-// //   );
-// // }
-// import React from 'react';
-// import { NavigationContainer } from '@react-navigation/native';
-// import AppDrawer from '../Drawer';
+// export default function HomeScreen() {
+//   const [search, setSearch] = useState('');
 
-// export default function Index() {
 //   return (
-//     <NavigationContainer>
-//       <AppDrawer />
-//     </NavigationContainer>
+//     <View style={styles.container}>
+      
+//     </View>
 //   );
 // }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     padding: 20,
+//     marginTop: 20,
+//   },
+//   input: {
+//     borderWidth: 1,
+//     borderColor: '#ccc',
+//     padding: 10,
+//     borderRadius: 8,
+//   },
+// });
+import { View } from 'react-native';
+
+import HomePage from '../components/HomePage'
+import { useNavigation } from 'expo-router';
+
+
+export default function Home() {
+  const navigation = useNavigation();
+  return (
+    <View style={{ flex: 1 }}>
+      <HomePage navigation={navigation}/>
+    </View>
+  );
+}
