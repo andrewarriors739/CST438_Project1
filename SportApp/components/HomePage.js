@@ -92,7 +92,7 @@ const [hockeyEvents, setHockeyEvents] = useState([]);
         </View>
       ))}
 
-      
+
 
       <Text style={styles.title}>Upcoming Football Games</Text>
       {footballEvents.map(event => (
