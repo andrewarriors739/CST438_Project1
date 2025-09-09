@@ -1,14 +1,16 @@
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
-import { useEffect } from "react";
+
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { initDatabase } from "@/database/database";
-
 import { HammersmithOne_400Regular } from '@expo-google-fonts/hammersmith-one';
 
-SplashScreen.preventAutoHideAsync();
+import { FavItemsProvider } from './FavItemsContext';
 
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -16,12 +18,12 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    initDatabase();
+    initDatabase(); 
   }, []);
 
   useEffect(() => {
     if (fontsLoaded) {
-      SplashScreen.hideAsync();
+      SplashScreen.hideAsync(); 
     }
   }, [fontsLoaded]);
 
@@ -31,22 +33,24 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
-        <Drawer.Screen
-          name="index"
-          options={{
-            drawerLabel: 'Home',
-            title: 'Home',
-          }}
-        />
-        <Drawer.Screen
-        name = "profile"
-        options = {{
-          drawerLabel: 'Profile', 
-          title: 'Profile',
-        }}
-        />
-      </Drawer>
+      <FavItemsProvider>
+        <Drawer>
+          <Drawer.Screen
+            name="index"
+            options={{
+              drawerLabel: 'Home',
+              title: 'Home',
+            }}
+          />
+          <Drawer.Screen
+            name="profile"
+            options={{
+              drawerLabel: 'Profile',
+              title: 'Profile',
+            }}
+          />
+        </Drawer>
+      </FavItemsProvider>
     </GestureHandlerRootView>
   );
 }
