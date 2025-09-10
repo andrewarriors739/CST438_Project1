@@ -7,6 +7,7 @@ import { initDatabase } from "@/database/database";
 import { HammersmithOne_400Regular } from '@expo-google-fonts/hammersmith-one';
 import { FavItemsProvider } from './FavItemsContext';
 
+
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -31,30 +32,33 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <FavItemsProvider>
-        <Drawer>
+          <Drawer initialRouteName="LoginPage">
           <Drawer.Screen
-            name="index"
-            options={{
-              drawerLabel: 'Home',
-              title: 'Home',
-            }}
+            name="HomePage"
+            options={{ drawerLabel: "Home", title: "Next Play" }}
           />
           <Drawer.Screen
             name="profile"
-            options={{
-              drawerLabel: 'Profile',
-              title: 'Profile',
-            }}
+            options={{ drawerLabel: "Profile", title: "Next Play" }}
           />
           <Drawer.Screen
-            name="FavSportsListPage"
+            name="players"
+            options={{ drawerLabel: "Players", title: "Players" }}
+          />
+          <Drawer.Screen
+            name="teams"
+            options={{ drawerLabel: "Teams", title: "Next Play" }}
+          />
+          <Drawer.Screen
+            name="LoginPage"
             options={{
-              drawerLabel: 'Favorites',
-              title: 'Favorite Sports',
+              drawerLabel: "Login",
+              title: "Next Play",
+              drawerItemStyle: { height: 0 },
             }}
           />
         </Drawer>
-      </FavItemsProvider>
+     </FavItemsProvider>
     </GestureHandlerRootView>
   );
 }
