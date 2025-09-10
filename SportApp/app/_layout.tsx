@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
-import { View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
-
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { initDatabase } from "@/database/database";
 import { HammersmithOne_400Regular } from '@expo-google-fonts/hammersmith-one';
-
 import { FavItemsProvider } from './FavItemsContext';
 
 SplashScreen.preventAutoHideAsync();
@@ -23,7 +20,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (fontsLoaded) {
-      SplashScreen.hideAsync(); 
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 
@@ -47,6 +44,13 @@ export default function RootLayout() {
             options={{
               drawerLabel: 'Profile',
               title: 'Profile',
+            }}
+          />
+          <Drawer.Screen
+            name="FavSportsListPage"
+            options={{
+              drawerLabel: 'Favorites',
+              title: 'Favorite Sports',
             }}
           />
         </Drawer>
