@@ -13,6 +13,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-, "test/HomePage.test.js"  ]
+    "expo-env.d.ts",
+    "app/FavSportsListPage.tsx",
+    "test/HomePage.test.js"  
+  ]
 }
