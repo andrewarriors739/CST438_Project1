@@ -29,29 +29,20 @@ export default function RootLayout() {
     return null;
   }
 
-  return (
+ return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
+      <Drawer initialRouteName="LoginPage"> 
         <Drawer.Screen
-          name="index"
-          options={{
-            drawerLabel: 'Home',
-            title: 'Next Play',
-          }}
+          name="HomePage"
+          options={{ drawerLabel: 'Home', title: 'Home' }}
         />
         <Drawer.Screen
           name="profile"
-          options={{
-            drawerLabel: 'Profile', 
-            title: 'Next Play',
-          }}
+          options={{ drawerLabel: 'Profile', title: 'Profile' }}
         />
         <Drawer.Screen
-          name="teams"
-          options={{
-            drawerLabel: 'Teams',
-            title: 'Next Play',
-          }}
+          name="LoginPage"
+          options={{ drawerLabel: 'Login', title: 'Login', drawerItemStyle: { height:0 } }} 
         />
       </Drawer>
     </GestureHandlerRootView>
