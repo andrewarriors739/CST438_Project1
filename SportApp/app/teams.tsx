@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, TouchableOpacity, TextInput} from "react-native";
-import { router } from 'expo-router';
+import TeamsComponent from '../components/teams';
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -17,24 +17,26 @@ const styles = StyleSheet.create({
         fontFamily: 'HammersmithOne_400Regular',
     },
     contentContainer: {
-        flex: 1,
         justifyContent: "flex-start",
         alignItems: "center",
         padding: 20,
         paddingTop: 10,
     },
     title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 10,
         color: 'white',
-        fontFamily: 'HammersmithOne_400Regular',
+        fontSize: 32,
+        fontWeight: 'bold',
+        letterSpacing: 4,
+        textAlign: 'center',
+        marginTop: 30,
     },
     subtitle: {
         fontSize: 16,
-        color: '#666',
-        marginBottom: 30,
-        fontFamily: 'HammersmithOne_400Regular',
+        color: 'white',
+        fontWeight: 'bold',
+        letterSpacing: 4,
+        textAlign: 'center',
+        marginBottom: 10,
     },
     button: {
         backgroundColor: '#05316b',
@@ -54,7 +56,7 @@ const searchBar = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 8,
         padding: 20,
-        marginTop: 20,
+        marginTop: 10,
         width: '80%',
         fontSize: 16,
         color: '#333',
@@ -62,16 +64,19 @@ const searchBar = StyleSheet.create({
     
 });
 
+
 export default function Teams() {
     return (
         <View style={styles.mainContainer}>
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Next Play</Text>
+                <Text style={styles.headerTitle}>Teams</Text>
             </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.title}>Teams</Text>
+                <Text style={styles.subtitle}>Discover Your Favorite Teams</Text>
                 <TextInput style={searchBar.container} placeholder="Search teams..." />
             </View>
+            <TeamsComponent />
         </View>
     );
 }
