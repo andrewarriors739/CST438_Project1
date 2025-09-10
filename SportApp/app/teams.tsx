@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, TouchableOpacity, TextInput} from "react-native";
-import { router } from 'expo-router';
+import TeamsComponent from '../components/teams';
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
         fontFamily: 'HammersmithOne_400Regular',
     },
     contentContainer: {
-        flex: 1,
         justifyContent: "flex-start",
         alignItems: "center",
         padding: 20,
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         letterSpacing: 4,
         textAlign: 'center',
-        marginBottom: 30,
+        marginBottom: 10,
     },
     button: {
         backgroundColor: '#05316b',
@@ -57,7 +56,7 @@ const searchBar = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 8,
         padding: 20,
-        marginTop: 20,
+        marginTop: 10,
         width: '80%',
         fontSize: 16,
         color: '#333',
@@ -65,18 +64,19 @@ const searchBar = StyleSheet.create({
     
 });
 
-const teamAPICall ="https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t="
-
 
 export default function Teams() {
     return (
         <View style={styles.mainContainer}>
+            <View style={styles.header}>
+                <Text style={styles.headerTitle}>Teams</Text>
+            </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.title}>Teams</Text>
+                <Text style={styles.subtitle}>Discover Your Favorite Teams</Text>
                 <TextInput style={searchBar.container} placeholder="Search teams..." />
             </View>
-
-            {/* <img src="" alt="" /> */}
+            <TeamsComponent />
         </View>
     );
 }
