@@ -24,17 +24,20 @@ const styles = StyleSheet.create({
         paddingTop: 10,
     },
     title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 10,
         color: 'white',
-        fontFamily: 'HammersmithOne_400Regular',
+        fontSize: 32,
+        fontWeight: 'bold',
+        letterSpacing: 4,
+        textAlign: 'center',
+        marginTop: 30,
     },
     subtitle: {
         fontSize: 16,
-        color: '#666',
+        color: 'white',
+        fontWeight: 'bold',
+        letterSpacing: 4,
+        textAlign: 'center',
         marginBottom: 30,
-        fontFamily: 'HammersmithOne_400Regular',
     },
     button: {
         backgroundColor: '#05316b',
@@ -62,16 +65,18 @@ const searchBar = StyleSheet.create({
     
 });
 
+const teamAPICall ="https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t="
+
+
 export default function Teams() {
     return (
         <View style={styles.mainContainer}>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>Next Play</Text>
-            </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.title}>Teams</Text>
                 <TextInput style={searchBar.container} placeholder="Search teams..." />
             </View>
+
+            {/* <img src="" alt="" /> */}
         </View>
     );
 }

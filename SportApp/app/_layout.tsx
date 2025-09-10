@@ -36,15 +36,22 @@ export default function RootLayout() {
           name="index"
           options={{
             drawerLabel: 'Home',
-            title: 'Home',
+            title: 'Next Play',
           }}
         />
         <Drawer.Screen
-        name = "profile"
-        options = {{
-          drawerLabel: 'Profile', 
-          title: 'Profile',
-        }}
+          name="profile"
+          options={{
+            drawerLabel: 'Profile', 
+            title: 'Next Play',
+          }}
+        />
+        <Drawer.Screen
+          name="teams"
+          options={{
+            drawerLabel: 'Teams',
+            title: 'Next Play',
+          }}
         />
       </Drawer>
     </GestureHandlerRootView>
