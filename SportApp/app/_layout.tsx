@@ -1,14 +1,13 @@
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Drawer } from 'expo-router/drawer';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Drawer } from "expo-router/drawer";
 import { useEffect } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { initDatabase } from "@/database/database";
 
-import { HammersmithOne_400Regular } from '@expo-google-fonts/hammersmith-one';
+import { HammersmithOne_400Regular } from "@expo-google-fonts/hammersmith-one";
 
 SplashScreen.preventAutoHideAsync();
-
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -29,24 +28,32 @@ export default function RootLayout() {
     return null;
   }
 
- return (
+  return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer initialRouteName="LoginPage"> 
+      <Drawer initialRouteName="LoginPage">
         <Drawer.Screen
           name="HomePage"
-          options={{ drawerLabel: 'Home', title: 'Next Play' }}
+          options={{ drawerLabel: "Home", title: "Next Play" }}
         />
         <Drawer.Screen
           name="profile"
-          options={{ drawerLabel: 'Profile', title: 'Next Play' }}
+          options={{ drawerLabel: "Profile", title: "Next Play" }}
+        />
+        <Drawer.Screen
+          name="players"
+          options={{ drawerLabel: "Players", title: "Players" }}
         />
         <Drawer.Screen
           name="teams"
-          options={{ drawerLabel: 'Teams', title: 'Next Play' }}
+          options={{ drawerLabel: "Teams", title: "Next Play" }}
         />
         <Drawer.Screen
           name="LoginPage"
-          options={{ drawerLabel: 'Login', title: 'Next Play', drawerItemStyle: { height:0 } }} 
+          options={{
+            drawerLabel: "Login",
+            title: "Next Play",
+            drawerItemStyle: { height: 0 },
+          }}
         />
       </Drawer>
     </GestureHandlerRootView>
