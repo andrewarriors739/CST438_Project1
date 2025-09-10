@@ -48,3 +48,35 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## Running Tests
+
+This project includes unit tests for the Teams component. To run the tests:
+
+### Run all tests
+```bash
+npm test
+```
+
+### Run specific test file
+```bash
+npm test teams.test.js
+```
+
+### Run tests in watch mode
+```bash
+npm test -- --watch
+```
+
+### Run tests with coverage
+```bash
+npm test -- --coverage
+```
+
+### Test Files
+- `test/teams.test.js` - Tests for the Teams component including:
+  - API integration tests for all sports (basketball, soccer, football, baseball, hockey)
+  - UI rendering tests
+  - User interaction tests (team clicks)
+  - Error handling tests
+  - Data extraction and display tests
