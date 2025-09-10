@@ -2,8 +2,7 @@ import React from 'react';
 import { render, waitFor, fireEvent } from '@testing-library/react-native';
 import Teams from '../components/teams';
 
-// Mock fetch to avoid real API calls
-global.fetch = jest.fn();
+// Fetch is already mocked globally in jest-setup.js
 
 // Mock console.log to avoid cluttering test output
 const mockConsoleLog = jest.spyOn(console, 'log').mockImplementation(() => {});
