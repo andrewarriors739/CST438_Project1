@@ -147,7 +147,76 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20
   },
+<<<<<<< Updated upstream
   eachEvent:{
     marginBottom:10
   }
+=======
+ 
+  eachGame:{
+   backgroundColor: 'white',
+  padding: 10,
+  marginVertical: 5,
+  borderRadius: 8,
+  flexDirection: 'row',
+  alignItems: 'center',
+  inHeight: 80,
+            
+  },
+  row: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: 10,
+  width:'100%',
+},
+modalBackground: {
+  flex: 1,                    
+  backgroundColor: 'rgba(0,0,0,0.5)', 
+  justifyContent: 'center',    
+  
+  alignItems: 'center',       
+},
+modalContent: {
+  width: '100%',         
+  maxWidth: 400,       
+  padding: 20,
+  backgroundColor: '#093877',
+  borderRadius: 10,
+  alignItems: 'center', 
+  flexDirection: 'column', 
+  textAlign:'center',
+  
+
+},
+modalImagesRow: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-evenly',
+  width: '100%',
+  marginVertical: 15,
+},
+modalGameInfo: {
+  alignItems: 'center',
+  textAlign: 'center',
+  fontSize:20,
+  fontWeight: 'bold',
+  color:'white'
+},
+
+
+modalButton:{
+  backgroundColor: 'white',
+  paddingVertical: 10,
+  paddingHorizontal: 20,
+  borderRadius: 8,
+},
+
+modalButtonText:{
+  fontSize: 20,
+  color: '#093877',
+  fontWeight: 'bold',
+}
+
+>>>>>>> Stashed changes
 });
