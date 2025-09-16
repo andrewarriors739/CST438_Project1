@@ -147,11 +147,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20
   },
-<<<<<<< Updated upstream
+
   eachEvent:{
     marginBottom:10
-  }
-=======
+  },
  
   eachGame:{
    backgroundColor: 'white',
@@ -218,5 +217,5 @@ modalButtonText:{
   fontWeight: 'bold',
 }
 
->>>>>>> Stashed changes
+
 });

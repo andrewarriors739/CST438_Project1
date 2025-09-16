@@ -9,8 +9,7 @@ import { HammersmithOne_400Regular } from '@expo-google-fonts/hammersmith-one';
 
 SplashScreen.preventAutoHideAsync();
 
-
-export default function RootLayout() {
+export default function Layout() {
   const [fontsLoaded] = useFonts({
     HammersmithOne_400Regular,
   });
@@ -25,26 +24,30 @@ export default function RootLayout() {
     }
   }, [fontsLoaded]);
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  if (!fontsLoaded) return null;
 
- return (
+  return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer initialRouteName="LoginPage"> 
-        <Drawer.Screen
-          name="HomePage"
-          options={{ drawerLabel: 'Home', title: 'Home' }}
-        />
-        <Drawer.Screen
-          name="profile"
-          options={{ drawerLabel: 'Profile', title: 'Profile' }}
-        />
-        <Drawer.Screen
-          name="LoginPage"
-          options={{ drawerLabel: 'Login', title: 'Login', drawerItemStyle: { height:0 } }} 
-        />
-      </Drawer>
+  <Drawer.Screen
+    name="HomePage"  // match the file name in (tabs)/HomePage.tsx
+    options={{ drawerLabel: 'Home', title: 'Home' }}
+  />
+  <Drawer.Screen
+    name="profile"   // match the file name in (tabs)/profile.tsx
+    options={{ drawerLabel: 'Profile', title: 'Profile' }}
+  />
+  <Drawer.Screen
+    name="LoginPage" // match the file name in (tabs)/LoginPage.tsx
+    options={{ drawerLabel: 'Login', title: 'Login', drawerItemStyle: { height:0 } }}
+  />
+  <Drawer.Screen
+    name="signUp" // match the file name in (tabs)/LoginPage.tsx
+    options={{ drawerLabel: 'signUp', title: 'signUp' }}
+  />
+</Drawer>
+
+
     </GestureHandlerRootView>
   );
 }
