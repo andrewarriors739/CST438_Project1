@@ -8,9 +8,9 @@ export default function SignUp() {
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
-  const [db, setDb] = useState(null); // <-- JS version
+  const [db, setDb] = useState(null); 
 
-  // Initialize database
+  //initialize db
   useEffect(() => {
     const prepareDb = async () => {
       const database = await initDatabase();
