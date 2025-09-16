@@ -54,7 +54,7 @@ export default function RootLayout() {
             options={{
               drawerLabel: "Login",
               title: "Next Play",
-              drawerItemStyle: { height: 0 },
+              //drawerItemStyle: { height: 0 },
             }}
           />
         </Drawer>
