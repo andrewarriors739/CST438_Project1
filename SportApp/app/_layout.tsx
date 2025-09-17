@@ -1,14 +1,14 @@
+import React, { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
-import { useEffect } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { initDatabase } from "@/database/database";
-
 import { HammersmithOne_400Regular } from '@expo-google-fonts/hammersmith-one';
+import { FavItemsProvider } from './FavItemsContext';
+
 
 SplashScreen.preventAutoHideAsync();
-
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -16,7 +16,7 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    initDatabase();
+    initDatabase(); 
   }, []);
 
   useEffect(() => {
@@ -31,29 +31,34 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
-        <Drawer.Screen
-          name="index"
-          options={{
-            drawerLabel: 'Home',
-            title: 'Home',
-          }}
-        />
-        <Drawer.Screen
-        name = "profile"
-        options = {{
-          drawerLabel: 'Profile', 
-          title: 'Profile',
-        }}
-        />
-         <Drawer.Screen
-        name = "teams"
-        options = {{
-          drawerLabel: 'Teams', 
-          title: 'Teams',
-        }}
-        />
-      </Drawer>
+      <FavItemsProvider>
+          <Drawer initialRouteName="LoginPage">
+          <Drawer.Screen
+            name="HomePage"
+            options={{ drawerLabel: "Home", title: "Next Play" }}
+          />
+          <Drawer.Screen
+            name="profile"
+            options={{ drawerLabel: "Profile", title: "Next Play" }}
+          />
+          <Drawer.Screen
+            name="players"
+            options={{ drawerLabel: "Players", title: "Players" }}
+          />
+          <Drawer.Screen
+            name="teams"
+            options={{ drawerLabel: "Teams", title: "Next Play" }}
+          />
+          <Drawer.Screen
+            name="LoginPage"
+            options={{
+              drawerLabel: "Login",
+              title: "Next Play",
+              //drawerItemStyle: { height: 0 },
+            }}
+          />
+        </Drawer>
+     </FavItemsProvider>
     </GestureHandlerRootView>
   );
 }
