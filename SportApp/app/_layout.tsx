@@ -50,11 +50,19 @@ export default function RootLayout() {
             options={{ drawerLabel: "Teams", title: "Next Play" }}
           />
           <Drawer.Screen
+            name="teamDisplay"
+            options={{ 
+              drawerLabel: "Team Display", 
+              title: "Next Play",
+              drawerItemStyle: { height: 0, overflow: 'hidden' }
+            }}
+          />
+          <Drawer.Screen
             name="LoginPage"
             options={{
               drawerLabel: "Login",
               title: "Next Play",
-              drawerItemStyle: { height: 0 },
+              //drawerItemStyle: { height: 0 },
             }}
           />
         </Drawer>
