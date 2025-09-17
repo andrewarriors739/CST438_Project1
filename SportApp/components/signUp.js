@@ -8,9 +8,9 @@ export default function SignUp() {
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
-  const [db, setDb] = useState(null); // <-- JS version
+  const [db, setDb] = useState(null); 
 
-  // Initialize database
+  //initialize db
   useEffect(() => {
     const prepareDb = async () => {
       const database = await initDatabase();
@@ -20,16 +20,16 @@ export default function SignUp() {
   }, []);
 
   const handleSignUp = async () => {
-    if (!userName || !userPassword || !checkPassword) {
+    if (!userName || !userPassword || !checkPassword) { //requirements
       Alert.alert('Error', 'Please fill all the fields');
       return;
     }
-    if (userPassword !== checkPassword) {
+    if (userPassword !== checkPassword) { //matching password
       Alert.alert('Error', 'Passwords do not match');
       return;
     }
 
-    if (!db) {
+    if (!db) { //database not working
       Alert.alert('Error', 'Database not ready yet');
       return;
     }
@@ -42,8 +42,8 @@ export default function SignUp() {
       Alert.alert('Success', 'Account created successfully!');
       navigation.navigate('LoginPage');
     } catch (error) {
-      console.log('DB insert error:', error);
-      Alert.alert('Error', 'Failed to create account');
+      console.log('Error:', error);
+      Alert.alert('Error:', 'Failed to create account');
     }
   };
 
@@ -69,7 +69,8 @@ export default function SignUp() {
         secureTextEntry
         style={{ marginBottom: 15, borderWidth: 1, padding: 12 }}
       />
-      <Button title="Sign Up" onPress={handleSignUp} />
+      {/* go to log in page if successful */}
+      <Button title="Sign Up" onPress={handleSignUp} /> 
     </ScrollView>
   );
 }
