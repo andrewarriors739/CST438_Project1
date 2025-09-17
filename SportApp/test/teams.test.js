@@ -2,6 +2,8 @@ import React from 'react';
 import { render, waitFor, fireEvent } from '@testing-library/react-native';
 import Teams from '../components/teams';
 
+// Mocking is handled globally in jest-setup-mocks.js
+
 // Fetch is already mocked globally in jest-setup.js
 
 // Mock console.log to avoid cluttering test output
@@ -73,6 +75,7 @@ describe('Teams Component', () => {
     // Reset fetch mock before each test
     fetch.mockClear();
     mockConsoleLog.mockClear();
+    global.mockRouterPush.mockClear();
   });
 
   afterAll(() => {

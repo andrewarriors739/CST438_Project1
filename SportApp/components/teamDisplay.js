@@ -91,7 +91,8 @@ export default function TeamDisplayComponent() {
             shadowRadius: 3.84,
         },
         favoritesButton: {
-            center: 30,
+            alignSelf: 'center',
+            marginTop: 20,
             backgroundColor: 'white',
             paddingHorizontal: 20,
             paddingVertical: 10,
@@ -166,10 +167,6 @@ export default function TeamDisplayComponent() {
                     <Text style={styles.teamName}>
                         {teamName ? (Array.isArray(teamName) ? teamName[0] : teamName) : 'Team Name Not Available'}
                     </Text>
-                   
-                    <TouchableOpacity style={styles.favoritesButton}>
-                        <Text style={styles.backButtonText}>Add to Favorites</Text>
-                    </TouchableOpacity>
                 </View>
                 
                 
@@ -184,6 +181,10 @@ export default function TeamDisplayComponent() {
                         </Text>
                     </View>
                 ) : (
+                    <View>
+                        <TouchableOpacity style={styles.favoritesButton}>
+                            <Text style={styles.backButtonText}>Add to Favorites</Text>
+                        </TouchableOpacity>
                     <View style={{ marginTop: 20 }}>
                         <View style={styles.detailItem}>
                             <Text style={styles.detailLabel}>League:</Text>
@@ -212,17 +213,18 @@ export default function TeamDisplayComponent() {
                             </View>
                         )}
                     </View>
+                    </View>
                 )}
+                
+                <View style={{ height: 60 }} />
+
+                <TouchableOpacity
+                    style={styles.backButton}
+                    onPress={() => router.push('/teams')}
+                >
+                    <Text style={styles.backButtonText}>← Back to Search</Text>
+                </TouchableOpacity>
             </View>
-
-            <View style={{ height: 60 }} />
-
-            <TouchableOpacity
-                style={styles.backButton}
-                onPress={() => router.push('/teams')}
-            >
-                <Text style={styles.backButtonText}>← Back to Search</Text>
-            </TouchableOpacity>
         </ScrollView>
     );
 }
