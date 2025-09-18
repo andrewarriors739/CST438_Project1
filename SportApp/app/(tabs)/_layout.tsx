@@ -10,7 +10,7 @@ import { FavItemsProvider } from './FavItemsContext';
 
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+export default function Layout() {
   const [fontsLoaded] = useFonts({
     HammersmithOne_400Regular,
   });
@@ -25,14 +25,12 @@ export default function RootLayout() {
     }
   }, [fontsLoaded]);
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  if (!fontsLoaded) return null;
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <FavItemsProvider>
-          <Drawer initialRouteName="LoginPage">
+        <Drawer initialRouteName="LoginPage">
           <Drawer.Screen
             name="HomePage"
             options={{ drawerLabel: "Home", title: "Next Play" }}
@@ -54,11 +52,15 @@ export default function RootLayout() {
             options={{
               drawerLabel: "Login",
               title: "Next Play",
-              //drawerItemStyle: { height: 0 },
+              drawerItemStyle: { height: 0 },
             }}
           />
+          <Drawer.Screen
+            name="signUp"
+            options={{ drawerLabel: "Sign Up", title: "Sign Up" }}
+          />
         </Drawer>
-     </FavItemsProvider>
+      </FavItemsProvider>
     </GestureHandlerRootView>
   );
 }
