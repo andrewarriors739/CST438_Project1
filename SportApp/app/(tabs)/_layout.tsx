@@ -5,7 +5,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { initDatabase } from "@/database/database";
 import { HammersmithOne_400Regular } from '@expo-google-fonts/hammersmith-one';
-import { FavItemsProvider } from './FavItemsContext';
+import { FavItemsProvider } from '../FavItemsContext';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -51,16 +51,14 @@ export default function Layout() {
             name="teamDisplay"
             options={{ 
               drawerLabel: "Team Display", 
-              title: "Next Play",
-              drawerItemStyle: { height: 0, overflow: 'hidden' }
+              title: "Next Play"
             }}
           />
           <Drawer.Screen
             name="LoginPage"
             options={{
               drawerLabel: "Login",
-              title: "Next Play",
-              //drawerItemStyle: { height: 0 },
+              title: "Next Play"
             }}
           />
           <Drawer.Screen
