@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text, Image, ScrollView, ActivityIndicator, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
+import { router } from 'expo-router';
 
 
 //API Calls to get random teams that have events happening soon to show up on the teams page
-export default function Teams() {
+export default function Teams({ searchText }) {
     const [basketballTeam, setBasketballTeam] = useState([]);
     const [soccerTeam, setSoccerTeam] = useState([]);
     const [footballTeam, setFootballTeam] = useState([]);
@@ -13,7 +14,10 @@ export default function Teams() {
     
     const teamClicked = (team) => {
         console.log('Team clicked:', team.name);
-        // Going to add logic for when a team is clicked here
+        router.push({
+            pathname: '/teamDisplay',
+            params: { teamName: team.name, logo: team.logo }
+        });
     };
 
     // Get home teams from events
