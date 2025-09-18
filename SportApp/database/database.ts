@@ -10,6 +10,8 @@ export const initDatabase = async () => {
       password TEXT
     );
   `);
+
+  
   
   return db;
 };
