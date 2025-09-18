@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet} from "react-native";
-import TeamDisplayComponent from '../components/teamDisplay';
+import TeamDisplayComponent from '../../components/teamDisplay';
 
 const styles = StyleSheet.create({
     mainContainer: {

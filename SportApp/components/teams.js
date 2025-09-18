@@ -13,7 +13,6 @@ export default function Teams({ searchText }) {
 
     
     const teamClicked = (team) => {
-        console.log('Team clicked:', team.name);
         router.push({
             pathname: '/teamDisplay',
             params: { teamName: team.name, logo: team.logo }

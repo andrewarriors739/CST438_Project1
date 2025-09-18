@@ -22,7 +22,6 @@ export default function TeamDisplayComponent() {
             fetch(`https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t=${actualTeamName}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log('Team API response:', data);
                     if (data.teams && data.teams[0]) {
                         setTeamDescription(data.teams[0].strDescriptionEN || 'No description available');
                         setTeamLocation(data.teams[0].strCountry || 'Unknown location');
@@ -185,34 +184,34 @@ export default function TeamDisplayComponent() {
                         <TouchableOpacity style={styles.favoritesButton}>
                             <Text style={styles.backButtonText}>Add to Favorites</Text>
                         </TouchableOpacity>
-                    <View style={{ marginTop: 20 }}>
-                        <View style={styles.detailItem}>
-                            <Text style={styles.detailLabel}>League:</Text>
-                            <Text style={styles.detailValue}>{teamLeague}</Text>
-                        </View>
-                        
-                        <View style={styles.detailItem}>
-                            <Text style={styles.detailLabel}>Location:</Text>
-                            <Text style={styles.detailValue}>{teamLocation}</Text>
-                        </View>
-                        
-                        <View style={styles.detailItem}>
-                            <Text style={styles.detailLabel}>Stadium:</Text>
-                            <Text style={styles.detailValue}>{teamStadium}</Text>
-                        </View>
-                        
-                        <View style={styles.detailItem}>
-                            <Text style={styles.detailLabel}>Founded:</Text>
-                            <Text style={styles.detailValue}>{yearMade}</Text>
-                        </View>
-                        
-                        {teamDescription && (
+                        <View style={{ marginTop: 20 }}>
                             <View style={styles.detailItem}>
-                                <Text style={styles.detailLabel}>Description:</Text>
-                                <Text style={styles.detailValue}>{teamDescription}</Text>
+                                <Text style={styles.detailLabel}>League:</Text>
+                                <Text style={styles.detailValue}>{teamLeague}</Text>
                             </View>
-                        )}
-                    </View>
+                            
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>Location:</Text>
+                                <Text style={styles.detailValue}>{teamLocation}</Text>
+                            </View>
+                            
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>Stadium:</Text>
+                                <Text style={styles.detailValue}>{teamStadium}</Text>
+                            </View>
+                            
+                            <View style={styles.detailItem}>
+                                <Text style={styles.detailLabel}>Founded:</Text>
+                                <Text style={styles.detailValue}>{yearMade}</Text>
+                            </View>
+                            
+                            {teamDescription && (
+                                <View style={styles.detailItem}>
+                                    <Text style={styles.detailLabel}>Description:</Text>
+                                    <Text style={styles.detailValue}>{teamDescription}</Text>
+                                </View>
+                            )}
+                        </View>
                     </View>
                 )}
                 

@@ -159,40 +159,38 @@ export default function HomePage({ navigation }) {
             <View style={[styles.modalContent, { padding: 15, 
               borderWidth: 2 }]}>
      
-      {selectedEvent && (
-        <View>
-          <View style={[styles.row, { 
-            justifyContent: 'space-around', 
-            marginVertical: 10 }]}>
-            <Image 
-              source={{ uri: selectedEvent.strHomeTeamBadge }} 
-              style={{ width: 60, height: 60 }} 
-            />
-            <Text style={[styles.eventTitle, { textAlign: 'center',
-               flexShrink: 1 }]}>
-              {selectedEvent.strEvent}
+        {selectedEvent && (
+          <View>
+            <View style={[styles.row, { 
+              justifyContent: 'space-around', 
+              marginVertical: 10 }]}>
+              <Image 
+                source={{ uri: selectedEvent.strHomeTeamBadge }} 
+                style={{ width: 60, height: 60 }} 
+              />
+              <Text style={[styles.eventTitle, { textAlign: 'center',
+                 flexShrink: 1 }]}>
+                {selectedEvent.strEvent}
+              </Text>
+              <Image 
+                source={{ uri: selectedEvent.strAwayTeamBadge }} 
+                style={{ width: 60, height: 60 }} 
+              />
+            </View>
+
+            <Text style={{ fontSize: 16, marginVertical: 10 }}>
+              {selectedEvent.dateEvent} - {selectedEvent.strTime}
             </Text>
-            <Image 
-              source={{ uri: selectedEvent.strAwayTeamBadge }} 
-              style={{ width: 60, height: 60 }} 
-            />
-          </View>
 
-          <Text style={{ fontSize: 16, marginVertical: 10 }}>
-            {selectedEvent.dateEvent} - {selectedEvent.strTime}
-          </Text>
-
-          <View style={[styles.modalGameInfo, { borderTopWidth: 1, borderTopColor: 'rgba(0,0,0,0.2)', marginTop: 10, paddingTop: 10 }]}>
-            <Text style={{ fontSize: 16 }}>Score: 0 - 0</Text>
+            <View style={[styles.modalGameInfo, { borderTopWidth: 1, borderTopColor: 'rgba(0,0,0,0.2)', marginTop: 10, paddingTop: 10 }]}>
+              <Text style={{ fontSize: 16 }}>Score: 0 - 0</Text>
               <Button title="Close" onPress={() => setModalVisible(false)} />
+            </View>
+          </View>
+        )}
           </View>
         </View>
-      )}
-    </View>
-  </View>
-</Modal>
-
-
+      </Modal>
       )}
 
     </ScrollView>

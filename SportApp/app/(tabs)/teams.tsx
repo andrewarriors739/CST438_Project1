@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet, TouchableOpacity, TextInput} from "react-native";
 import { useState } from 'react';
-import { router } from 'expo-router';
+import { useRouter } from 'expo-router';
 import TeamsComponent from '../../components/teams';
 
 const styles = StyleSheet.create({
@@ -74,6 +74,7 @@ const searchBar = StyleSheet.create({
 
 export default function Teams() {
     const [searchText, setSearchText] = useState('');
+    const router = useRouter();
 
     // Function to format team name for database search
     const formatTeamName = (teamName: string) => {

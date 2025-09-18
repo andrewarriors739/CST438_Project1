@@ -51,16 +51,14 @@ export default function Layout() {
             name="teamDisplay"
             options={{ 
               drawerLabel: "Team Display", 
-              title: "Next Play",
-              drawerItemStyle: { height: 0, overflow: 'hidden' }
+              title: "Next Play"
             }}
           />
           <Drawer.Screen
             name="LoginPage"
             options={{
               drawerLabel: "Login",
-              title: "Next Play",
-              //drawerItemStyle: { height: 0 },
+              title: "Next Play"
             }}
           />
           <Drawer.Screen
