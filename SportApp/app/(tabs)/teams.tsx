@@ -1,4 +1,6 @@
 import {View, Text, StyleSheet, TouchableOpacity, TextInput} from "react-native";
+import { useState } from 'react';
+import { router } from 'expo-router';
 import TeamsComponent from '../../components/teams';
 
 const styles = StyleSheet.create({
@@ -39,12 +41,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     button: {
-        backgroundColor: '#05316b',
         padding: 15,
         borderRadius: 8,
+        backgroundColor: 'white',
     },
     buttonText: {
-        color: 'white',
+        color: '#05316b',
         fontSize: 16,
         fontWeight: 'bold',
         fontFamily: 'HammersmithOne_400Regular',    
@@ -52,31 +54,67 @@ const styles = StyleSheet.create({
 });
 
 const searchBar = StyleSheet.create({
+    searchContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10,
+        width: '90%',
+        gap: 10,
+    },
     container: {
         backgroundColor: 'white',
         borderRadius: 8,
-        padding: 20,
-        marginTop: 10,
-        width: '80%',
+        padding: 15,
+        flex: 1,
+        fontSize: 16,
+        color: '#333',
     },
 });
 
 
 export default function Teams() {
+    const [searchText, setSearchText] = useState('');
+
+    // Function to format team name for database search
+    const formatTeamName = (teamName: string) => {
+        return teamName
+            .trim()
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ');
+    };
+
+    const handleSearch = () => {
+        if (searchText.trim()) {
+            const formattedTeamName = formatTeamName(searchText);
+            console.log('Searching for team:', formattedTeamName);
+            router.push({
+                pathname: '/teamDisplay',
+                params: { teamName: formattedTeamName, logo: null }
+            });
+        }
+    };
+
     return (
         <View style={styles.mainContainer}>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>Teams</Text>
-            </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.title}>Teams</Text>
                 <Text style={styles.subtitle}>Discover Your Favorite Teams</Text>
-                <TextInput 
-                    style={[searchBar.container, { fontSize: 16, color: '#333' }]} 
-                    placeholder="Search teams..." 
-                />
+                <View style={searchBar.searchContainer}>
+                    <TextInput 
+                        style={searchBar.container} 
+                        placeholder="Search teams..." 
+                        value={searchText}
+                        onChangeText={setSearchText}
+                        onSubmitEditing={handleSearch}
+                        returnKeyType="search"
+                    />
+                    <TouchableOpacity style={styles.button} onPress={handleSearch}>
+                        <Text style={styles.buttonText}>Search</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <TeamsComponent />
+            <TeamsComponent searchText={searchText} />
         </View>
     );
 }
