@@ -20,7 +20,7 @@ export default function PlayersPage({ navigation }) {
     return (
         <View>
             <TextInput
-                style={searchBar.container}
+                style={[searchBar.container, { fontSize: 16, color: '#333' }]}
                 placeholder="Search players..."
                 value={search}
                 onChangeText={setSearch}
@@ -59,8 +59,5 @@ const searchBar = StyleSheet.create({
         padding: 20,
         marginTop: 20,
         width: '80%',
-        fontSize: 16,
-        color: '#333',
     },
-    
 });

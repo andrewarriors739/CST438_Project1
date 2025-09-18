@@ -160,8 +160,7 @@ export default function HomePage({ navigation }) {
               borderWidth: 2 }]}>
      
       {selectedEvent && (
-        <>
-         
+        <View>
           <View style={[styles.row, { 
             justifyContent: 'space-around', 
             marginVertical: 10 }]}>
@@ -179,17 +178,15 @@ export default function HomePage({ navigation }) {
             />
           </View>
 
-        
           <Text style={{ fontSize: 16, marginVertical: 10 }}>
             {selectedEvent.dateEvent} - {selectedEvent.strTime}
           </Text>
 
-    
           <View style={[styles.modalGameInfo, { borderTopWidth: 1, borderTopColor: 'rgba(0,0,0,0.2)', marginTop: 10, paddingTop: 10 }]}>
             <Text style={{ fontSize: 16 }}>Score: 0 - 0</Text>
               <Button title="Close" onPress={() => setModalVisible(false)} />
           </View>
-        </>
+        </View>
       )}
     </View>
   </View>

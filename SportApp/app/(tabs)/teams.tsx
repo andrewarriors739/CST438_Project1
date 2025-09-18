@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, TouchableOpacity, TextInput} from "react-native";
-import TeamsComponent from '../components/teams';
+import TeamsComponent from '../../components/teams';
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -58,10 +58,7 @@ const searchBar = StyleSheet.create({
         padding: 20,
         marginTop: 10,
         width: '80%',
-        fontSize: 16,
-        color: '#333',
     },
-    
 });
 
 
@@ -74,7 +71,10 @@ export default function Teams() {
             <View style={styles.contentContainer}>
                 <Text style={styles.title}>Teams</Text>
                 <Text style={styles.subtitle}>Discover Your Favorite Teams</Text>
-                <TextInput style={searchBar.container} placeholder="Search teams..." />
+                <TextInput 
+                    style={[searchBar.container, { fontSize: 16, color: '#333' }]} 
+                    placeholder="Search teams..." 
+                />
             </View>
             <TeamsComponent />
         </View>

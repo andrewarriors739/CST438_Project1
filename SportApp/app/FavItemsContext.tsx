@@ -75,3 +75,6 @@ export const useFavItems = () => {
   if (!context) throw new Error("useFavItems must be used inside FavItemsProvider");
   return context;
 };
+
+// Default export for the context provider
+export default FavItemsProvider;
