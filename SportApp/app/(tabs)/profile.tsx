@@ -1,10 +1,14 @@
+import { useRouter } from 'expo-router';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
 
 export default function ProfilePage() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Profile Page</Text>
+      <Button title="Log out" onPress={() => router.push('/LoginPage')} />
     </View>
   );
 }

@@ -58,12 +58,18 @@ export default function Layout() {
             name="LoginPage"
             options={{
               drawerLabel: "Login",
-              title: "Next Play"
+              title: "Next Play",
+              drawerItemStyle: { height: 0 },
+              headerShown: false, 
             }}
           />
           <Drawer.Screen
             name="signUp"
-            options={{ drawerLabel: "Sign Up", title: "Sign Up" }}
+            options={{ drawerLabel: "Sign Up", 
+              title: "Sign Up" ,
+            drawerItemStyle: { height: 0 },
+            headerShown: false, 
+            }}
           />
         </Drawer>
       </FavItemsProvider>
