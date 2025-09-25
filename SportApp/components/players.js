@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, Button, ScrollView, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { addFavoritePlayer, isPlayerFavorited} from '../database/database';
 
 export default function PlayersPage({ navigation }) {
@@ -8,7 +9,10 @@ export default function PlayersPage({ navigation }) {
     const [players, setPlayers] = useState([]);
     const [favoritePlayers, setFavoritePlayers] = useState(new Set());    
     
-    
+    const getCurrentUserId = async () => {
+        const userId = await AsyncStorage.getItem('currentUserId');
+        return userId ? parseInt(userId) : 1; 
+    };
     
     const fetchPlayers = async () => {
         
@@ -19,11 +23,11 @@ export default function PlayersPage({ navigation }) {
         const playersData = data.player || [];
         setPlayers(playersData);
         
-        //temporary
+        const currentUserId = await getCurrentUserId();
         const favoriteIds = new Set();
         for (const player of playersData) {
             if (player.idPlayer) {
-                const isFav = await isPlayerFavorited(player.idPlayer);
+                const isFav = await isPlayerFavorited(player.idPlayer, currentUserId);
                 if (isFav) {
                     favoriteIds.add(player.idPlayer);
                 }
@@ -33,10 +37,10 @@ export default function PlayersPage({ navigation }) {
     };
     
     const favoritePlayer = async (player) => {
-        
         const playerId = player.idPlayer;
+        const currentUserId = await getCurrentUserId();
             
-        await addFavoritePlayer(player);
+        await addFavoritePlayer(player, currentUserId);
         setFavoritePlayers(prev => new Set(prev).add(playerId));
         console.log('Player added to favorites:', player.strPlayer);
     };

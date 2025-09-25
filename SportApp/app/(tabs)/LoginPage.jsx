@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Button, Modal, TextInput, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { initDatabase } from '@/database/database';
 
 const screenWidth = Dimensions.get('window').width;
@@ -48,6 +49,9 @@ export default function MyLoginPage() {
       console.log('Query result:', rows);
   
       if (rows.length > 0) {
+        const userId = rows[0].id.toString();
+        await AsyncStorage.setItem('currentUserId', userId);
+        
         Alert.alert('Success', 'Login successful!');
         setModalVisible(false);
         navigation.navigate('HomePage');

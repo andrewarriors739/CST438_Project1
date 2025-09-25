@@ -9,13 +9,18 @@ export const initDatabase = async () => {
       username TEXT,
       password TEXT
     );
-    
+  `);
+  
+  await db.execAsync(`
     CREATE TABLE IF NOT EXISTS favorite_players (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      player_id TEXT UNIQUE,
+      userid INTEGER NOT NULL,
+      player_id TEXT NOT NULL,
       player_name TEXT,
       team TEXT,
-      image_url TEXT
+      image_url TEXT,
+      FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE,
+      UNIQUE(userid, player_id)
     );
   `);
 
@@ -24,14 +29,15 @@ export const initDatabase = async () => {
   return db;
 };
 
-export const addFavoritePlayer = async (player: any) => {
+export const addFavoritePlayer = async (player: any, userid: number) => {
   const db = await SQLite.openDatabaseAsync('Users.db');
   
   await db.runAsync(
   `INSERT OR REPLACE INTO favorite_players 
-  (player_id, player_name, team, image_url) 
-  VALUES (?, ?, ?, ?)`,
+  (userid, player_id, player_name, team, image_url) 
+  VALUES (?, ?, ?, ?, ?)`,
   [
+    userid,
     player.idPlayer,
     player.strPlayer,
     player.strTeam,
@@ -43,19 +49,22 @@ export const addFavoritePlayer = async (player: any) => {
 };
 
 
-export const removeFavoritePlayer = async (playerId: string) => {
-  const db = await SQLite.openDatabaseAsync('Users.db');
-  await db.runAsync('DELETE FROM favorite_players WHERE player_id = ?', [playerId]);
-  console.log('Player removed from favorites:', playerId);
-};
-
-export const isPlayerFavorited = async (playerId: string) => {
+export const isPlayerFavorited = async (playerId: string, userid: number) => {
   const db = await SQLite.openDatabaseAsync('Users.db');
   const result = await db.getFirstAsync(
-    'SELECT player_id FROM favorite_players WHERE player_id = ?',
-    [playerId]
+    'SELECT player_id FROM favorite_players WHERE player_id = ? AND userid = ?',
+    [playerId, userid]
   );
   return result !== null;
+};
+
+export const getFavoritePlayers = async (userid: number) => {
+  const db = await SQLite.openDatabaseAsync('Users.db');
+  const result = await db.getAllAsync(
+    'SELECT * FROM favorite_players WHERE userid = ?',
+    [userid]
+  );
+  return result;
 };
 
 
