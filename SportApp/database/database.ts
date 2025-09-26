@@ -22,6 +22,16 @@ export const initDatabase = async () => {
       FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE,
       UNIQUE(userid, player_id)
     );
+    
+    CREATE TABLE IF NOT EXISTS favorite_teams (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      userid INTEGER NOT NULL,
+      team_id TEXT NOT NULL,
+      team_name TEXT,
+      team_logo TEXT,
+      FOREIGN KEY (userid) REFERENCES users(id) ON DELETE CASCADE,
+      UNIQUE(userid, team_id)
+    );
   `);
 
   
@@ -62,6 +72,41 @@ export const getFavoritePlayers = async (userid: number) => {
   const db = await SQLite.openDatabaseAsync('Users.db');
   const result = await db.getAllAsync(
     'SELECT * FROM favorite_players WHERE userid = ?',
+    [userid]
+  );
+  return result;
+};
+
+export const addFavoriteTeam = async (team: any, userid: number) => {
+  const db = await SQLite.openDatabaseAsync('Users.db');
+  
+  await db.runAsync(
+  `INSERT OR REPLACE INTO favorite_teams 
+  (userid, team_id, team_name, team_logo) 
+  VALUES (?, ?, ?, ?)`,
+  [
+    userid,
+    team.id,
+    team.name,
+    team.logo
+  ]
+  );
+  console.log('Team added to favorites:', team.name);
+};
+
+export const isTeamFavorited = async (teamId: string, userid: number) => {
+  const db = await SQLite.openDatabaseAsync('Users.db');
+  const result = await db.getFirstAsync(
+    'SELECT team_id FROM favorite_teams WHERE team_id = ? AND userid = ?',
+    [teamId, userid]
+  );
+  return result !== null;
+};
+
+export const getFavoriteTeams = async (userid: number) => {
+  const db = await SQLite.openDatabaseAsync('Users.db');
+  const result = await db.getAllAsync(
+    'SELECT * FROM favorite_teams WHERE userid = ?',
     [userid]
   );
   return result;
