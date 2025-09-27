@@ -1,5 +1,6 @@
 import React from "react";
 import { FlatList, Text, View } from "react-native";
+//import { useFavItems } from "../app/FavItemsContext";
 import { useFavItems } from "./FavItemsContext";
 
 const allSportsItems = [
