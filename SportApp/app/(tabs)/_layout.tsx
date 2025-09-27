@@ -57,11 +57,11 @@ export default function Layout() {
           />
           <Drawer.Screen
             name="FavSportsListPage"
-            options={{ drawerLabel: "Favorite Sports", title: "Favorite Sports" }}
+            options={{ drawerLabel: "Favorites", title: "Favorites" }}
           />
           <Drawer.Screen
             name="PageWithSportsList"
-            options={{ drawerLabel: "Sports List", title: "Sports List" }}
+            options={{ drawerLabel: "Players, Teams, Games, Leagues", title: "Players, Teams, Games, Leagues" }}
           />
           <Drawer.Screen
             name="LoginPage"
