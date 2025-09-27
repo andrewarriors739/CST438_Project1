@@ -5,8 +5,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { initDatabase } from "@/database/database";
 import { HammersmithOne_400Regular } from '@expo-google-fonts/hammersmith-one';
-import { FavItemsProvider } from '../FavItemsContext';
-
+import FavItemsProvider from './FavItemsContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -16,7 +15,7 @@ export default function Layout() {
   });
 
   useEffect(() => {
-    initDatabase(); 
+    initDatabase();
   }, []);
 
   useEffect(() => {
@@ -49,10 +48,19 @@ export default function Layout() {
           />
           <Drawer.Screen
             name="teamDisplay"
-            options={{ 
-              drawerLabel: "Team Display", 
-              title: "Next Play"
-            }}
+            options={{ drawerLabel: "Team Display", title: "Next Play" }}
+          />
+          <Drawer.Screen
+            name="FavItemsContext"
+            options={{ drawerLabel: "Favorites Context", title: "Fav Context" }}
+          />
+          <Drawer.Screen
+            name="FavSportsListPage"
+            options={{ drawerLabel: "Favorite Sports", title: "Favorite Sports" }}
+          />
+          <Drawer.Screen
+            name="PageWithSportsList"
+            options={{ drawerLabel: "Sports List", title: "Sports List" }}
           />
           <Drawer.Screen
             name="LoginPage"
@@ -60,15 +68,16 @@ export default function Layout() {
               drawerLabel: "Login",
               title: "Next Play",
               drawerItemStyle: { height: 0 },
-              headerShown: false, 
+              headerShown: false,
             }}
           />
           <Drawer.Screen
             name="signUp"
-            options={{ drawerLabel: "Sign Up", 
-              title: "Sign Up" ,
-            drawerItemStyle: { height: 0 },
-            headerShown: false, 
+            options={{
+              drawerLabel: "Sign Up",
+              title: "Sign Up",
+              drawerItemStyle: { height: 0 },
+              headerShown: false,
             }}
           />
         </Drawer>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
-import { useFavItems } from "../app/FavItemsContext";
+import { useFavItems } from "./FavItemsContext";
 import { MaterialIcons } from "@expo/vector-icons";
 
 interface Sport {
