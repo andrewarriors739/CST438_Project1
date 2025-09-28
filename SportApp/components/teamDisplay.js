@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { addFavoriteTeam } from '../database/database';
 
 export default function TeamDisplayComponent() {
     const { teamName, logo } = useLocalSearchParams();
@@ -12,12 +14,14 @@ export default function TeamDisplayComponent() {
     const [teamLogo, setTeamLogo] = useState('');
     const [loading, setLoading] = useState(true);
     const [teamNotFound, setTeamNotFound] = useState(false);
+    const [isFavorited, setIsFavorited] = useState(false);
     
 
-    //Get the team details to display it
     useEffect(() => {
         if (teamName) {
             const actualTeamName = Array.isArray(teamName) ? teamName[0] : teamName;
+            
+            setIsFavorited(false);
             
             fetch(`https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t=${actualTeamName}`)
                 .then(res => res.json())
@@ -41,6 +45,25 @@ export default function TeamDisplayComponent() {
                 });
         }
     }, [teamName]);
+
+    const getCurrentUserId = async () => {
+        const userId = await AsyncStorage.getItem('currentUserId');
+        return userId ? parseInt(userId) : null;
+    };
+
+    const favoriteTeam = async () => {
+        const currentUserId = await getCurrentUserId();
+    
+        const team = {
+            id: teamName,
+            name: teamName,
+            logo: teamLogo || logo
+        };
+            
+        await addFavoriteTeam(team, currentUserId);
+        setIsFavorited(true);
+        console.log('Team added to favorites:', teamName);
+    };
 
     const styles = StyleSheet.create({
         mainContainer: {
@@ -181,8 +204,14 @@ export default function TeamDisplayComponent() {
                     </View>
                 ) : (
                     <View>
-                        <TouchableOpacity style={styles.favoritesButton}>
-                            <Text style={styles.backButtonText}>Add to Favorites</Text>
+                        <TouchableOpacity 
+                            style={[styles.favoritesButton, isFavorited && { backgroundColor: '#4CAF50' }]}
+                            onPress={favoriteTeam}
+                            disabled={isFavorited}
+                        >
+                            <Text style={[styles.backButtonText, isFavorited && { color: 'white' }]}>
+                                {isFavorited ? 'Added to Favorites!' : 'Add to Favorites'}
+                            </Text>
                         </TouchableOpacity>
                         <View style={{ marginTop: 20 }}>
                             <View style={styles.detailItem}>

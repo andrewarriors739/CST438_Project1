@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, TextInput, Button, Alert } from 'react-native';
-import { useNavigation } from 'expo-router';
+import { useNavigation, useRouter } from 'expo-router';
 import { initDatabase } from '@/database/database';
 
 export default function SignUp() {
+  const router = useRouter();
   const navigation = useNavigation();
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -20,6 +21,13 @@ export default function SignUp() {
   }, []);
 
   const handleSignUp = async () => {
+
+      //reset the textinput
+      setUserName('');
+      setUserPassword('');
+      setCheckPassword('');
+
+
     if (!userName || !userPassword || !checkPassword) { //requirements
       Alert.alert('Error', 'Please fill all the fields');
       return;
@@ -35,10 +43,15 @@ export default function SignUp() {
     }
 
     try {
-      await db.execAsync(
+      await db.runAsync(
         'INSERT INTO users (username, password) VALUES (?, ?);',
         [userName, userPassword]
       );
+
+      const users = await db.getAllAsync('SELECT * FROM users');
+  console.log('All users:', users);
+
+
       Alert.alert('Success', 'Account created successfully!');
       navigation.navigate('LoginPage');
     } catch (error) {
@@ -71,6 +84,7 @@ export default function SignUp() {
       />
       {/* go to log in page if successful */}
       <Button title="Sign Up" onPress={handleSignUp} /> 
+            <Button  title="BACK" onPress={() => router.push('/LoginPage')} />
     </ScrollView>
   );
 }
