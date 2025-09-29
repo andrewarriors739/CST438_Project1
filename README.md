@@ -34,7 +34,7 @@ This is an app that allows a user to find out a lot about a multitude of differe
 , https://github.com/andrewarriors739/CST438_Project1/pull/19
 )
 
-###Janniel Tan
+### Janniel Tan
 Issues: Allow user to sign up · Issue #7 · andrewarriors739/CST438_Project1
 Frontend - Landing Page · Issue #4 · andrewarriors739/CST438_Project1
 Backend - Login Page · Issue #38 · andrewarriors739/CST438_Project1
@@ -45,7 +45,7 @@ Worked on the home page, as well as the drawer navigation by tanjanniel · Pull 
 API is working on the homepage, did an attempt on setting up the unit test but failed. by tanjanniel · Pull Request #24 · andrewarriors739/CST438_Project1
 Home page improvement, added sign up page, added index.tsx for better navigation. I added (tabs) folder under app folder by tanjanniel · Pull Request #31 · andrewarriors739/CST438_Project1
 
-###Sebastian Ramos
+### Sebastian Ramos
 - [a link to your issues requests](https://github.com/andrewarriors739/CST438_Project1/issues/26
 https://github.com/andrewarriors739/CST438_Project1/issues/14
 https://github.com/andrewarriors739/CST438_Project1/issues/11
@@ -55,19 +55,19 @@ https://github.com/andrewarriors739/CST438_Project1/pull/25
 https://github.com/andrewarriors739/CST438_Project1/pull/33
 https://github.com/andrewarriors739/CST438_Project1/pull/35)
 
-###Mariana Duran
+### Mariana Duran
 	Issues:
-	Frontend - Create Search Tab For Teams - Issue #5	
-	Test the API - Issue #8 
-	Backend - Team Search Tab - Issue #10
-	Make An Engineer Review Document - Issue #15
-	Add Random Teams To Search Tab - Issue #28
+	-Frontend - Create Search Tab For Teams - Issue #5	
+	-Test the API - Issue #8 
+	-Backend - Team Search Tab - Issue #10
+	-Make An Engineer Review Document - Issue #15
+	-Add Random Teams To Search Tab - Issue #28
 	
 	Pull Requests:
-	Team Search Tab Frontend - Pull Request #18 	
-Added Team API Calls To Team Page - Pull Request #27
-Team Search Page Functionality - Pull Request #32
-Fixed Errors Caused By Merges - Pull Request #34	
+	-Team Search Tab Frontend - Pull Request #18 	
+	-Added Team API Calls To Team Page - Pull Request #27
+	-Team Search Page Functionality - Pull Request #32
+	-Fixed Errors Caused By Merges - Pull Request #34	
 
 
 #### What was your role / which stories did you work on
