@@ -57,7 +57,7 @@ https://github.com/andrewarriors739/CST438_Project1/pull/35)
 
 ### Mariana Duran
 Issues:
--[ Frontend - Create Search Tab For Teams - Issue #5](https://github.com/andrewarriors739/CST438_Project1/issues/5)
+- [Frontend - Create Search Tab For Teams - Issue #5](https://github.com/andrewarriors739/CST438_Project1/issues/5)
 - [Test the API - Issue #8](https://github.com/andrewarriors739/CST438_Project1/issues/8)
 - [Backend - Team Search Tab - Issue #10](https://github.com/andrewarriors739/CST438_Project1/issues/10)
 - [Make An Engineer Review Document - Issue #15](https://github.com/andrewarriors739/CST438_Project1/issues/15)
