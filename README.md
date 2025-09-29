@@ -56,18 +56,18 @@ https://github.com/andrewarriors739/CST438_Project1/pull/33
 https://github.com/andrewarriors739/CST438_Project1/pull/35)
 
 ### Mariana Duran
-	Issues:
-	-Frontend - Create Search Tab For Teams - Issue #5	
-	-Test the API - Issue #8 
-	-Backend - Team Search Tab - Issue #10
-	-Make An Engineer Review Document - Issue #15
-	-Add Random Teams To Search Tab - Issue #28
+Issues:
+-Frontend - Create Search Tab For Teams - Issue #5	
+-Test the API - Issue #8 
+-Backend - Team Search Tab - Issue #10
+-Make An Engineer Review Document - Issue #15
+-Add Random Teams To Search Tab - Issue #28
 	
-	Pull Requests:
-	-Team Search Tab Frontend - Pull Request #18 	
-	-Added Team API Calls To Team Page - Pull Request #27
-	-Team Search Page Functionality - Pull Request #32
-	-Fixed Errors Caused By Merges - Pull Request #34	
+Pull Requests:
+-Team Search Tab Frontend - Pull Request #18 	
+-Added Team API Calls To Team Page - Pull Request #27
+-Team Search Page Functionality - Pull Request #32
+-Fixed Errors Caused By Merges - Pull Request #34	
 
 
 #### What was your role / which stories did you work on
